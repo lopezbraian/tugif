@@ -1,9 +1,11 @@
 import "../styles/globals.css"
-import AppLayout from "../components/appLayout"
+import AppLayout from "../components/AppLayout"
+import { Provider } from "react-redux"
+import store from "../redux/index"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
       <AppLayout>
         <Component {...pageProps} />
       </AppLayout>
@@ -17,10 +19,11 @@ function MyApp({ Component, pageProps }) {
         section {
           background-color: #ffff;
           border-radius: 5px;
-          height: 100vh;
+          min-height: 100vh;
+          padding: 10px;
         }
       `}</style>
-    </>
+    </Provider>
   )
 }
 
