@@ -25,7 +25,8 @@ export const Searcher = () => {
       </form>
       <style jsx>{`
         .searcher {
-          margin: 10px 0;
+          max-width: 400px;
+          margin: 10px auto;
           width: 100%;
           height: 40px;
           display: flex;

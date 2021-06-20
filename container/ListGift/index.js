@@ -24,14 +24,16 @@ export const ListGift = ({ data, title = "Default Title" }) => {
           border-radius: 5px;
         }
         .container-list-gif {
-          display: flex;
-          overflow: hidden;
-          overflow-x: auto;
-          padding-bottom: 50px;
+          gap: 10px;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          grid-template-rows: 100px;
         }
         img {
-          margin: 0 5px;
           border-radius: 5px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       `}</style>
     </div>

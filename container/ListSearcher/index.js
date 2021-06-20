@@ -4,9 +4,10 @@ import { URL_BASE } from "../../config"
 import { Title } from "../../components/Title"
 import LoupeTrendSvg from "../../components/svg/LoupeTrendSvg"
 import Loading from "react-loader-spinner"
+import Link from "next/link"
 
 export const ListSearcher = () => {
-  const url = `${URL_BASE}trending/searches?api_key=${process.env.API_KEY_GIPHY}&limit=25`
+  const url = `${URL_BASE}trending/searches?api_key=${process.env.API_KEY_GIPHY}`
   const [resp, loading, error] = useGetData(url)
 
   const { data } = resp
@@ -23,7 +24,13 @@ export const ListSearcher = () => {
         ) : (
           data &&
           data.map((t, index) => {
-            return <li key={index}>{t}</li>
+            return (
+              <li key={index}>
+                <Link href={`/category/${t}`}>
+                  <a>{t}</a>
+                </Link>
+              </li>
+            )
           })
         )}
       </ul>

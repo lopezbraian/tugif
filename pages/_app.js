@@ -21,6 +21,8 @@ function MyApp({ Component, pageProps }) {
           border-radius: 5px;
           min-height: 100vh;
           padding: 10px;
+          max-width: 768px;
+          margin: 0 auto;
         }
       `}</style>
     </Provider>

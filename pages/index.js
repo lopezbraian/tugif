@@ -1,9 +1,7 @@
 import axios from "axios"
 import Head from "next/head"
-import { Provider } from "react-redux"
-import { ListGift } from "../Container/ListGift"
-import { ListSearcher } from "../Container/ListSearcher"
-import store from "../redux"
+import { ListGift } from "../container/ListGift"
+import { ListSearcher } from "../container/ListSearcher"
 
 export default function Home({ resp }) {
   return (

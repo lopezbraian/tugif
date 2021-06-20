@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { useRouter } from "next/router"
 import useGetData from "../../hooks/useGetData"
 import { URL_BASE } from "../../config"
-import { Title } from "../../components/Title"
 import Loading from "react-loader-spinner"
 import Head from "next/head"
+import GridGif from "../../container/GridGif"
 
 export default function Search() {
   const router = useRouter()
@@ -20,37 +20,27 @@ export default function Search() {
   const { data } = resp
 
   return (
-    <section>
+    <>
       <Head>
-        <title>Resultado busqueda: {q}</title>
+        <title>Results searcher: {q}</title>
       </Head>
-      <div className="container">
-        <Title title={`Resultado de tu busqueda ${q}`}></Title>
-        <div className="container-images">
-          {loading ? (
-            <Loading
-              color="#32D3A9"
-              type="ThreeDots"
-              style={{ textAlign: "center" }}
-            />
-          ) : (
-            data &&
-            data.map((d, index) => (
-              <img key={index} src={d.images.original.url}></img>
-            ))
-          )}
-        </div>
+      <div>
+        <h2>Gifs about this category: {q}</h2>
+        {loading ? (
+          <Loading
+            color="#32D3A9"
+            type="ThreeDots"
+            style={{ textAlign: "center" }}
+          />
+        ) : (
+          data && <GridGif gifs={data} />
+        )}
         <style jsx>{`
-          .container-images {
-            max-width: 468px;
-            width: 100%;
-          }
-          img {
-            display: inline;
-            width: 100%;
+          h2 {
+            text-align: center;
           }
         `}</style>
       </div>
-    </section>
+    </>
   )
 }
